@@ -16,19 +16,25 @@ $("#login").click(() => {
     console.log("Login unsuccessful");
 });
 
-socket.on("loggedin", () => {
+socket.on("loggedin", (data) => {
+    console.log(data)
+    data.forEach(el => {
+        add_listItem(el)
+    });
     console.log("login Successful");
     $("#loginform").hide();
     $("#chatbox").show();
+
 });
 
 socket.on("chat_rec", data => {
-    $("#chats").append($("<li>").text(`${data.username}: ${data.msg}`));
+    add_listItem(data)
 });
 $("#send").click(() => {
     let message = $("#msg").val();
     if (message) {
         socket.emit("chat", {
+            username: user,
             msg: message
         });
         $("#chats").append(`<li class='you'>${message}</li>`);
@@ -39,3 +45,7 @@ $("#send").click(() => {
 
     }
 });
+
+function add_listItem(data) {
+    $("#chats").append($("<li>").text(`${data.name}: ${data.message}`));
+}
