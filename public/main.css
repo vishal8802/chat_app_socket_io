@@ -2,16 +2,20 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-div {
-  border: 1px solid black;
+.wel {
+  text-align: center
+}
+
+.box {
+  border: solid 1px black
 }
 
 .box {
   position: absolute;
   top: 20px;
   bottom: 70px;
-  right: 25%;
-  left: 25%;
+  right: 30%;
+  left: 30%;
   overflow-y: auto;
 }
 
@@ -27,10 +31,12 @@ div {
 input {
   width: 60%;
   height: 40px;
+
 }
 
 button {
   height: 40px;
+
 }
 
 .you {

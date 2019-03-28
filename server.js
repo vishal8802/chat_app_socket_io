@@ -25,11 +25,7 @@ io.on("connection", socket => {
 
   socket.on("login", async (data) => {
     user[socket.id] = data.username;
-    let old_msg = await Users.findAll({
-      where: {
-        name: data.username
-      }
-    })
+    let old_msg = await Users.findAll()
     socket.emit("loggedin", old_msg);
   });
 

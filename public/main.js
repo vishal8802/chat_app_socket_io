@@ -17,7 +17,7 @@ $("#login").click(() => {
 });
 
 socket.on("loggedin", (data) => {
-    console.log(data)
+    $('.wel').remove()
     data.forEach(el => {
         add_listItem(el)
     });
@@ -28,7 +28,7 @@ socket.on("loggedin", (data) => {
 });
 
 socket.on("chat_rec", data => {
-    add_listItem(data)
+    $("#chats").append($("<li>").text(`${data.name}: ${data.message}`));
 });
 $("#send").click(() => {
     let message = $("#msg").val();
@@ -47,5 +47,9 @@ $("#send").click(() => {
 });
 
 function add_listItem(data) {
+    if (data.name == user) {
+        $("#chats").append(`<li class='you'>${data.message}</li>`);
+        return
+    }
     $("#chats").append($("<li>").text(`${data.name}: ${data.message}`));
 }
