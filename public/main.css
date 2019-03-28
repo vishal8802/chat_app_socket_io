@@ -1,0 +1,43 @@
+* {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+div {
+  border: 1px solid black;
+}
+
+.box {
+  position: absolute;
+  top: 20px;
+  bottom: 70px;
+  right: 25%;
+  left: 25%;
+  overflow-y: auto;
+}
+
+#loginform,
+#chatbox {
+  position: fixed;
+  bottom: 20px;
+  left: 25%;
+  right: 25%;
+  text-align: center;
+}
+
+input {
+  width: 60%;
+  height: 40px;
+}
+
+button {
+  height: 40px;
+}
+
+.you {
+  text-align: right;
+  margin-right: 30px;
+}
+
+li {
+  list-style: none
+}
